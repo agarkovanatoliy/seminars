@@ -13,7 +13,7 @@ export function App() {
       <Counter />
       <TextInput />
       <TodoList />
-      <Timer
+      <Timer />
     </>
   )
 }
