@@ -40,7 +40,7 @@ const App = () => {
     const style = { borderBottom: `1px solid ${i % 2 ? "green" : "red"}` };
     return <>
       <article style={style}>{item.title}</article>
-      <p>{item.price}</p>
+      <p>Цена&nbsp;&nbsp;&nbsp;&nbsp;{item.price}</p>
     </>
   };
 
@@ -97,9 +97,7 @@ const App = () => {
             </Box>
           }
         />
-                <Route
-          path="/goods"
-          element={
+        <Route path="/goods" element={
             <Box>
               <List items={goods} renderItem={renderItemGoods} />
             </Box>
