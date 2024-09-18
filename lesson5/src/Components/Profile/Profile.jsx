@@ -4,10 +4,14 @@ import { useTheme } from "../../Contexts/ThemeContext";
 import withLoadingIndicator from "../WithLoadingIndicator/WithLoadingIndicator";
 import { Counter } from "../Counter/Counter";
 import { useDispatch } from "react-redux";
-import { updateEmail, updateName, updateNameAndEmail } from "../../store/userReducer";
+import {
+  updateEmail,
+  updateName,
+  updateNameAndEmail,
+} from "../../store/userReducer";
 
-const Profile = ({data}) => {
-  const { setUsername } = useContext(UserContext);
+const Profile = ({ data }) => {
+  const { setUserName } = useContext(UserContext);
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const { theme, toggleTheme } = useTheme();
@@ -30,7 +34,8 @@ const Profile = ({data}) => {
     <div className="">
       <form
         onSubmit={handlerSubmit}
-        style={{ background: "#ccc", padding: "20px" }}>
+        style={{ background: "#ccc", padding: "20px" }}
+      >
         <input
           type="text"
           value={name}
@@ -48,14 +53,15 @@ const Profile = ({data}) => {
 
         <button type="submit">Отправить</button>
       </form>
-
-      <button onClick={() => setUsername(prompt("Напишите своё имя", "Макс"))}>
+      <p>{data}</p>
+      <button onClick={() => setUserName(prompt("Напишите своё имя", "Макс"))}>
         Сменить имя
       </button>
 
       <button
         className={`btn-${theme === "light" ? "light" : "dark"}`}
-        onClick={toggleTheme}>
+        onClick={toggleTheme}
+      >
         Сменить тему
       </button>
       <Counter />
